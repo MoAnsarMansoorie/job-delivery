@@ -1,5 +1,5 @@
 import express from "express";
-import { loginController, registerController, logoutController } from "../controllers/authController.js";
+import { loginController, registerController, logoutController, sendOtpController, verifyOtpController, resetPasswordController } from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -8,6 +8,10 @@ router.post("/register", registerController);
 // Login Route
 router.post("/login", loginController);
 // Logout Route
-router.post("/logout", logoutController);
+router.get("/logout", logoutController);
+
+router.post("/send-otp", sendOtpController);
+router.post("/verify-otp", verifyOtpController);
+router.post("/reset-password", resetPasswordController);
 
 export default router;
